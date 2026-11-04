@@ -1,0 +1,12 @@
+interface:
+  display_name: "System of Reason wrap-up"
+  short_description: "Save where work stands, pick it up later"
+  brand_color: "#171916"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "system-of-reason"
+      description: "System of Reason MCP server"
+      transport: "streamable_http"
+      url: "https://systemofreason.com/mcp"

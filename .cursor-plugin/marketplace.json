@@ -1,0 +1,17 @@
+{
+  "name": "system-of-reason",
+  "owner": {
+    "name": "System of Reason",
+    "email": "support@systemofreason.com"
+  },
+  "metadata": {
+    "description": "The System of Reason plugin: its MCP server and skills."
+  },
+  "plugins": [
+    {
+      "name": "system-of-reason",
+      "source": ".",
+      "description": "Keep notes, files and data in your System of Reason account and reuse them from any connected chat or app."
+    }
+  ]
+}

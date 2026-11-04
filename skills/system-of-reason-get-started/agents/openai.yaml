@@ -1,0 +1,12 @@
+interface:
+  display_name: "Get started with System of Reason"
+  short_description: "See what your account keeps"
+  brand_color: "#171916"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "system-of-reason"
+      description: "System of Reason MCP server"
+      transport: "streamable_http"
+      url: "https://systemofreason.com/mcp"

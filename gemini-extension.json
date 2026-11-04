@@ -1,0 +1,11 @@
+{
+  "name": "system-of-reason",
+  "version": "1.0.0",
+  "description": "Keep notes, files and data in your System of Reason account and reuse them from any connected chat or app.",
+  "mcpServers": {
+    "system-of-reason": {
+      "httpUrl": "https://systemofreason.com/mcp"
+    }
+  },
+  "contextFileName": "GEMINI.md"
+}

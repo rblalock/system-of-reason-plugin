@@ -1,0 +1,20 @@
+{
+  "name": "system-of-reason",
+  "displayName": "System of Reason",
+  "version": "1.0.0",
+  "description": "Keep notes, files and data in your System of Reason account and reuse them from any connected chat or app. Bundles the System of Reason MCP server with skills for saving and finding notes, wrapping up work and getting started.",
+  "author": {
+    "name": "System of Reason",
+    "email": "support@systemofreason.com",
+    "url": "https://systemofreason.com"
+  },
+  "homepage": "https://systemofreason.com",
+  "repository": "https://github.com/rblalock/system-of-reason-plugin",
+  "license": "MIT",
+  "keywords": ["memory", "notes", "handoff", "database", "files", "mcp", "skills"],
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://github.com/rblalock/system-of-reason-plugin#readme",
+  "supportUrl": "https://systemofreason.com/support",
+  "privacyPolicyUrl": "https://systemofreason.com/privacy",
+  "termsOfServiceUrl": "https://systemofreason.com/terms"
+}

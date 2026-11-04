@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "system-of-reason": {
+      "type": "http",
+      "url": "https://systemofreason.com/mcp"
+    }
+  }
+}

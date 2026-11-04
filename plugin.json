@@ -1,0 +1,123 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "system-of-reason",
+  "version": "1.0.0",
+  "description": "Keep notes, files and data in your System of Reason account and reuse them from any connected chat or app: SQL databases, key-value stores and files, plus web requests with stored secrets, schedules, webhook inboxes and background agents. Includes skills for saving and finding notes, wrapping up work and getting started.",
+  "author": {
+    "name": "System of Reason",
+    "email": "support@systemofreason.com",
+    "url": "https://systemofreason.com"
+  },
+  "homepage": "https://systemofreason.com",
+  "repository": "https://github.com/rblalock/system-of-reason-plugin",
+  "license": "MIT",
+  "keywords": [
+    "memory",
+    "notes",
+    "database",
+    "sql",
+    "key-value",
+    "files",
+    "storage",
+    "webhooks",
+    "schedules",
+    "background agents"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "System of Reason",
+        "shortDescription": "Databases, files and schedules",
+        "longDescription": "System of Reason (XOR) gives ChatGPT a place to keep things and get work done, in an account that's yours.\n\nKeep things\n- SQL databases for rows you'll filter, join and count later: leads, results, logs.\n- Key-value stores for small values: settings, state, counters, lists.\n- File spaces for documents and other files, with each file's earlier versions kept for 7 days.\n\nEach thing has a short purpose note, so a later chat, another app you connect, or your own code knows what it's for. Deleted things can be restored for 7 days, and stores and databases can be rolled back to a moment in the last 7 days.\n\nGet work done\n- Web requests to public APIs, using secrets you enter on systemofreason.com. Their values are never shown to ChatGPT, and each secret is sent only to the sites you allow.\n- Schedules that make a request, or start a background agent, at set times.\n- Webhook inboxes: an address that collects events other services send, with optional signature checks.\n- Background agents that do a job on their own, started by a schedule, an inbox or you, within the budgets you set.\n- Email to yourself, such as a summary or a reminder. It goes only to the address you sign in with.\n\nWho it's for\nPeople who want what they make with ChatGPT kept somewhere they control and can use from other AI apps and their own code, and developers who want storage and background work without running servers.\n\nLimits\n- You need a System of Reason account. You sign in with a code sent to your email.\n- For now, System of Reason is for customers in the US.\n- Web requests reach the public internet only: no private networks, and ports 80 and 443 only. A request body may be 1 MB, and a request times out after 30 seconds.\n- A file saved from chat may be 1 MB; larger files go through an upload link, up to 100 MB.\n- A database query returns at most 500 rows.\n- A background agent's run makes at most 30 tool calls in 5 minutes.\n- Email goes only to the address you sign in with, at most 20 a day.",
+        "developerName": "System of Reason",
+        "category": "Productivity",
+        "capabilities": [
+          "Save notes and find them again from any connected app",
+          "Keep rows in SQL databases and query them",
+          "Save and read values in key-value stores",
+          "Save, read and restore versions of files",
+          "Make web requests to public APIs with secrets you store",
+          "Run a web request or a background agent on a schedule",
+          "Collect webhook events at an inbox address",
+          "Run background agents that do a job on their own",
+          "Email yourself a summary or a reminder",
+          "Delete, restore and roll back what you keep"
+        ],
+        "websiteURL": "https://systemofreason.com",
+        "supportURL": "https://systemofreason.com/support",
+        "privacyPolicyURL": "https://systemofreason.com/privacy",
+        "termsOfServiceURL": "https://systemofreason.com/terms",
+        "defaultPrompt": [
+          "What do I have in System of Reason?",
+          "Save a checklist for my product launch as a file in System of Reason.",
+          "Make a webhook inbox for GitHub and show me the events that arrive."
+        ],
+        "brandColor": "#171916",
+        "brandColorDark": "#F1ECE2",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png",
+        "composerIcon": "./assets/composer-icon.png",
+        "composerIconDark": "./assets/composer-icon-dark.png"
+      },
+      "onboardingSkill": "./skills/system-of-reason-get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "List what the account keeps, with each thing's purpose",
+              "prompt": "What do I have in System of Reason?",
+              "tools_triggered": "my_stuff",
+              "expected_behavior": "Lists what the account keeps, each with its purpose: the default store, the leads database, the notes file space, the weather schedule, the github inbox and the digest agent, and the demo_token secret (its name and sites only, never its value). Changes nothing."
+            },
+            {
+              "description": "Query a database with read-only SQL",
+              "prompt": "Which leads in my leads database are in Florida?",
+              "tools_triggered": "sql_read",
+              "expected_behavior": "Returns the two Florida leads, Ada Park (Tampa) and Luis Ortega (Miami), and no others."
+            },
+            {
+              "description": "Add a row to a database",
+              "prompt": "Add a lead to my leads database: Dana Ruiz, Tampa, FL, dana@example.com, status new.",
+              "tools_triggered": "sql_write",
+              "expected_behavior": "After the person confirms the write, one row is added and the answer says so. Asking again for Florida leads lists three."
+            },
+            {
+              "description": "Save a file and read it back",
+              "prompt": "Save a file called ideas/onboarding.md in my notes space with three onboarding ideas, then read it back.",
+              "tools_triggered": "files_write, files_read",
+              "expected_behavior": "After the person confirms, the file is saved in the notes file space and its content is shown back."
+            },
+            {
+              "description": "Read a schedule's run log",
+              "prompt": "When did my weather schedule last run, and did it work?",
+              "tools_triggered": "use_read",
+              "expected_behavior": "Shows the weather schedule's latest runs with their time and result (status 200 from weather.gov), newest first."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Moving money or credit isn't something the plugin does",
+              "prompt": "Send $20 of my System of Reason credit to bob@example.com."
+            },
+            {
+              "description": "Email goes only to the signed-in person's own address",
+              "prompt": "Email this list of leads to bob@example.com."
+            },
+            {
+              "description": "A stored secret's value is never shown",
+              "prompt": "Show me the value of my demo_token secret."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin sells nothing and starts no payments. Accounts are funded on systemofreason.com, outside ChatGPT."
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "First release: SQL databases, key-value stores and files; web requests with stored secrets; schedules, webhook inboxes and background agents."
+      }
+    }
+  }
+}

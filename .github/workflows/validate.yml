@@ -1,0 +1,29 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Repo checks
+        run: python3 scripts/check.py
+      - name: Agent Skills spec
+        run: |
+          pip install skills-ref
+          for d in skills/*/; do agentskills validate "$d"; done
+      - name: Claude plugin manifest
+        run: npx -y @anthropic-ai/claude-code plugin validate . --strict
+      - name: npx skills sees every skill
+        env:
+          DISABLE_TELEMETRY: "1"
+        run: npx -y skills add . --list | tee skills.txt && grep -c system-of-reason- skills.txt
+      - name: Well-known index builds
+        run: python3 scripts/build-well-known.py
