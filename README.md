@@ -19,11 +19,20 @@ claude plugin marketplace add rblalock/system-of-reason-plugin
 claude plugin install system-of-reason@system-of-reason
 ```
 
-**Claude (web and desktop):** add the System of Reason connector from the Claude directory, or upload this plugin as a ZIP under Customize. To add only the skills, upload a ZIP of one folder from `skills/`.
+Run `claude plugin marketplace update system-of-reason` now and then for new versions.
 
-**Codex and ChatGPT:** install System of Reason from the plugin directory, or run `codex plugin marketplace add rblalock/system-of-reason-plugin`.
+**Claude (web and desktop):** connect `https://systemofreason.com/mcp` as a custom connector. To add the skills, zip each folder in `skills/` (the folder itself, not only its files) and upload each ZIP under Customize, then Skills.
 
-**Cursor:** install from the Cursor Marketplace, or in Customize choose From GitHub Repository and enter this repository.
+**Codex**
+
+```
+codex plugin marketplace add rblalock/system-of-reason-plugin
+codex plugin add system-of-reason@system-of-reason
+```
+
+**ChatGPT:** ChatGPT doesn't install these skills from a link. Connect the System of Reason server and ask in plain words, such as "Remember this in System of Reason".
+
+**Cursor:** run the `npx skills` command below in your project, or add `-g` for every project.
 
 **VS Code with GitHub Copilot:** Chat: Install Plugin From Source, then enter `rblalock/system-of-reason-plugin`.
 
