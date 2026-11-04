@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS notes (
   id            INTEGER PRIMARY KEY,
   created_at    TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
   agent         TEXT    NOT NULL,
-  project       TEXT    NOT NULL DEFAULT 'general',
+  topic         TEXT    NOT NULL DEFAULT 'general',
   kind          TEXT    NOT NULL,
   subject       TEXT    NOT NULL,
   body          TEXT    NOT NULL,
@@ -28,7 +28,7 @@ Run it as two statements in a `batch` if the app sends one statement per call.
 | `id` | Filled in by the database. Quote it when you tell the person what you saved. |
 | `created_at` | UTC time, filled in by the database. |
 | `agent` | The app that wrote the note: `claude-code`, `claude`, `chatgpt`, `codex`, `cursor`, `gemini-cli`, `copilot` and so on. |
-| `project` | The workstream the note is about, in a few words, such as `billing migration`. `general` if none. This is a label inside the table, not the System of Reason project that holds the table. |
+| `topic` | The workstream or project the note is about, in a few words. `general` if none. |
 | `kind` | One of the kinds below. |
 | `subject` | One specific line, about 80 characters at most. |
 | `body` | One to five sentences that make sense without the chat. |

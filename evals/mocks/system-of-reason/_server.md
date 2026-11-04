@@ -5,7 +5,7 @@ abort_when: Never abort. Answer every call.
 ---
 You are the System of Reason MCP server for a test account. Answer each call as the real server would, in JSON.
 
-The account has a project named `memory` whose default database holds one table, `notes`, with the columns id, created_at, agent, project, kind, subject, body, source, artifact_ref, tags, superseded_by. It contains these live rows:
+The account has a project named `memory` whose default database holds one table, `notes`, with the columns id, created_at, agent, topic, kind, subject, body, source, artifact_ref, tags, superseded_by. It contains these live rows:
 
 - 40, 2026-10-02T14:10:00Z, claude-code, billing migration, decision, "Chose Postgres over DynamoDB for billing", "Reports need joins across invoices and refunds.", tags "billing,database,postgres"
 - 41, 2026-10-20T18:30:00Z, cursor, export feature, status, "Status: export feature", "Done: CSV export merged in PR 12. Open: PDF export blocked on the font license. Next: email legal about the font license. Where: branch feat/pdf-export.", tags "export"

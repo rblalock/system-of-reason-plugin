@@ -56,7 +56,7 @@ Before writing:
    - `subject`: specific, at most about 80 characters. "Chose Postgres over DynamoDB for billing", not "Database decision".
    - `body`: one to five sentences. Say what and why. Use absolute dates such as 2026-03-14, never "today" or "next week".
    - `kind`: one of the kinds in [references/schema.md](references/schema.md).
-   - `project`: the workstream it belongs to, in a few words, such as `billing migration`, or `general`.
+   - `topic`: the workstream or project it belongs to, in a few words, or `general`.
    - `source`: a link, file path or ticket id where the detail lives, if there is one.
    - `tags`: a few comma-separated keywords to help later searches.
    - `agent`: the app you are running in, such as `claude-code`, `chatgpt` or `cursor`.
@@ -74,7 +74,6 @@ For anything longer than a few paragraphs (a plan, a report, a transcript summar
 
 - `LIKE` ignores case only for the letters A to Z. Search with a lowercase keyword and `lower()` on the columns, as the queries file does.
 - Results stop at 500 rows. Always use `LIMIT`.
-- One table for all notes. Don't make a new table or database per chat or per workstream; use the `project` column and `tags`.
-- Two things are called project. The tool argument `project` picks where the table lives (`memory`). The `project` column inside the table labels the workstream a note is about. Don't mix them up.
+- One table for all notes. Don't make a new table or database per chat or per topic; use `topic` and `tags`.
 - `created_at` fills itself in UTC. Don't pass a time unless you are importing old notes.
 - A tool error saying the account needs credit or is read-only isn't something to work around. Tell the person what it said and point them to their account at https://systemofreason.com/account.
