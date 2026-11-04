@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "system-of-reason",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Keep notes, files and data in your System of Reason account and reuse them from any connected chat or app: SQL databases, key-value stores and files, plus web requests with stored secrets, schedules, webhook inboxes and background agents. Includes skills for saving and finding notes, wrapping up work and getting started.",
   "author": {
     "name": "System of Reason",

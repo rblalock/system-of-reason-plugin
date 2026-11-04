@@ -1,7 +1,7 @@
 {
   "name": "system-of-reason",
   "displayName": "System of Reason",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Keep notes, files and data in your System of Reason account and reuse them from any connected chat or app. Bundles the System of Reason MCP server with skills for saving and finding notes, wrapping up work and getting started.",
   "author": {
     "name": "System of Reason",
