@@ -32,7 +32,23 @@ codex plugin add system-of-reason@system-of-reason
 
 **ChatGPT:** ChatGPT doesn't install these skills from a link. Connect the System of Reason server and ask in plain words, such as "Remember this in System of Reason".
 
-**Cursor:** run the `npx skills` command below in your project, or add `-g` for every project.
+**Cursor**
+
+Clone this repository. Open **Customize**, choose **Add Marketplace**, then **Import from Disk**, and select the clone. Pull that clone when you want a newer commit.
+
+Or, in chat, run:
+
+```
+/add-plugin https://github.com/rblalock/system-of-reason-plugin
+```
+
+**Inferred.** Cursor desktop was not run for this change. Whether install registers `mcp.json` is unmeasured. On [cursor/plugins#452](https://github.com/cursor/plugins/issues/452), a report says `/add-plugin` stays pinned to the first commit, and Cursor staff name **Import from Disk** on a clone as the personal path to use. Do not start with **Import from GitHub**. That control adds a marketplace and indexes no plugins.
+
+If you cannot install the plugin, set the server URL in `~/.cursor/mcp.json` to `https://systemofreason.com/mcp` and run this in your project:
+
+```
+npx skills add rblalock/system-of-reason-plugin -s '*'
+```
 
 **VS Code with GitHub Copilot:** Chat: Install Plugin From Source, then enter `rblalock/system-of-reason-plugin`.
 
