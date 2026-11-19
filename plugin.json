@@ -90,7 +90,7 @@
             {
               "description": "Read a schedule's run log",
               "prompt": "When did my weather schedule last run, and did it work?",
-              "tools_triggered": "use_read",
+              "tools_triggered": "automations_read",
               "expected_behavior": "Shows the weather schedule's latest runs with their time and result (status 200 from weather.gov), newest first."
             }
           ],
